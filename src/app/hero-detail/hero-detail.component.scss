@@ -1,0 +1,47 @@
+.hero-detail-container {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 32px 24px;
+  max-width: 400px;
+  margin: 32px auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.hero-detail-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.hero-detail-id {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.hero-detail-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-detail-label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.hero-detail-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  background: #fff;
+  transition: border 0.2s;
+}
+
+.hero-detail-input:focus {
+  border: 1.5px solid #45505a;
+}

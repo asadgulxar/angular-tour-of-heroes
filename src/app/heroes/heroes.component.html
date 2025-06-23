@@ -1,13 +1,14 @@
 <h2>My Heroes</h2>
 <ul class="hero-list">
-  <li *ngFor="let hero of heroes" class="hero-item" [ngClass]="{ 'selected': hero === selectedHero }" (click)="onSelect(hero)">
-    <span class="hero-id">{{ hero.id }}</span>
-    <span class="hero-name">{{ hero.name | uppercase }}</span>
+  <li *ngFor="let hero of heroes" class="hero-item">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
   </li>
 </ul>
 <hr>
 
-<app-hero-detail *ngIf="selectedHero" [hero]="selectedHero"></app-hero-detail>
+<app-hero-detail *ngIf="selectedHero" ></app-hero-detail>
 <ng-template #noHeroes>
   <p>No heroes available.</p>
 </ng-template>

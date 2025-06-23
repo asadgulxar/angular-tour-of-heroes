@@ -45,3 +45,23 @@
 .hero-detail-input:focus {
   border: 1.5px solid #45505a;
 }
+
+.go-back-hero-btn {
+  background: #45505a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  cursor: pointer;
+  margin: 24px 0 0 0;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+.go-back-hero-btn:hover {
+  background: #222;
+  color: #ffd700;
+}

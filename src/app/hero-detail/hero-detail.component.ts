@@ -1,5 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { Hero } from "../hero";
+import { HeroService } from "../hero.service";
+import { ActivatedRoute } from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-hero-detail",
@@ -7,11 +10,23 @@ import { Hero } from "../hero";
   styleUrls: ["./hero-detail.component.scss"],
 })
 export class HeroDetailComponent {
-  @Input() hero!: Hero;
+  hero!: Hero;
 
-  constructor() {
+  constructor(private heroService: HeroService, private router: ActivatedRoute, private location: Location) {
     // You can initialize properties or inject services here if needed.
+  } 
+
+  ngOnInit(): void {
+    this.getHero();
   }
 
-  // You can also add methods to handle actions related to the hero detail.
+  getHero(): void {
+    const id = Number(this.router.snapshot.paramMap.get("id"));
+    this.heroService.getHero(id)
+      .subscribe(hero => this.hero = hero);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

@@ -1,0 +1,10 @@
+<div class="dashboard-container">
+  <h2 class="dashboard-title">Top Heroes</h2>
+  <div class="heroes-grid">
+    <a *ngFor="let hero of heroes"
+       class="hero-card"
+       routerLink="/detail/{{hero.id}}">
+      {{ hero.name }}
+    </a>
+  </div>
+</div>

@@ -1,48 +1,45 @@
-.heroes {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero {
-    padding: 12px 16px;
-    // border: 2px solid #eee;
-    width: 50%;
-    align-self: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 20px;
-}
-
 .hero-list {
-    list-style-type: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0 0;
+  max-width: 500px;
 }
 
 .hero-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
 }
 
-.hero-id {
-    font-weight: bold;
-    background-color: #eee;
-    padding: 0 10px;
-    display: inline-block;
-    margin-right: 10px;
+.hero-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: #ededed;
+  color: #222;
+  font-size: 1.5rem;
+  padding: 18px 28px;
+  border-radius: 14px;
+  transition: background 0.2s, color 0.2s;
+  font-weight: 500;
 }
 
-.hero-name {
-    flex-grow: 1;
+.hero-item a:hover {
+  background: #222;
+  color: #fff;
 }
 
-.selected {
-    background-color: #d1e7dd;
+.badge {
+  background: #45505a;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 24px;
+  min-width: 48px;
+  text-align: center;
+  display: inline-block;
 }

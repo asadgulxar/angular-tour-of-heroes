@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 import {
-  debounceTime, distinctUntilChanged, switchMap
+  debounceTime, switchMap,
+  tap
 } from 'rxjs/operators';
 
 import { Hero } from '../hero';
@@ -26,9 +27,8 @@ export class HeroSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.heroes$ = this.searchTerms.pipe(
+      tap(() => console.log('searchTerms:', this.searchTerms)),
       debounceTime(400),
-      distinctUntilChanged(),
-
       switchMap((term: string) => this.heroService.searchHeroes(term)),
     );
   }

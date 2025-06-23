@@ -12,9 +12,7 @@ import { Location } from "@angular/common";
 export class HeroDetailComponent {
     hero!: Hero;
 
-    constructor(private heroService: HeroService, private router: ActivatedRoute, private location: Location) {
-        // You can initialize properties or inject services here if needed.
-    }
+    constructor(private heroService: HeroService, private router: ActivatedRoute, private location: Location) { }
 
     ngOnInit(): void {
         this.getHero();

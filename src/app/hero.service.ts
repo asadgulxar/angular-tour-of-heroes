@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Hero } from "./hero";
-import { HEROES } from "./mock-data";
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { MessageService } from "./message.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
@@ -32,14 +31,14 @@ export class HeroService {
     constructor(private messageService: MessageService, private http: HttpClient) {
     }
 
-    addHero(hero: Hero): Observable<Hero> {
+    addHero(hero: Hero) {
         return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
             tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
             catchError(this.handleError<Hero>('addHero'))
         );
     }
 
-    deleteHero(id: number): Observable<Hero> {
+    deleteHero(id: number) {
         const url = `${this.heroesUrl}/${id}`;
 
         return this.http.delete<Hero>(url, this.httpOptions).pipe(
@@ -48,7 +47,7 @@ export class HeroService {
         );
     }
 
-    searchHeroes(term: string): Observable<Hero[]> {
+    searchHeroes(term: string) {
         if (!term.trim()) {
             return of([]);
         }
@@ -60,7 +59,7 @@ export class HeroService {
         );
     }
 
-    getHeroes(): Observable<Hero[]> {
+    getHeroes() {
         return this.http.get<Hero[]>(this.heroesUrl)
             .pipe(
                 tap(_ => this.log('fetched heroes')),
@@ -68,7 +67,7 @@ export class HeroService {
             );
     }
 
-    getHero(id: number): Observable<Hero> {
+    getHero(id: number) {
         const url = `${this.heroesUrl}/${id}`;
         return this.http.get<Hero>(url).pipe(
             tap(_ => this.log(`fetched hero id=${id}`)),
@@ -76,7 +75,7 @@ export class HeroService {
         );
     }
 
-    updateHero(hero: Hero): Observable<any> {
+    updateHero(hero: Hero) {
         return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
             tap(_ => this.log(`updated hero id=${hero.id}`)),
             catchError(this.handleError<any>('updateHero'))
